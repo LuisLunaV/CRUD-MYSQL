@@ -13,6 +13,7 @@ const dbConnection = async()=>{
         console.log(process.env.DB_HOST)
         console.log(process.env.PORT)
 
+        console.log( db )
         await db.authenticate();
         console.log('Database en linea')
     } catch (error) {
