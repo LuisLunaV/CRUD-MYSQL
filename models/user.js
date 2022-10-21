@@ -1,8 +1,10 @@
 const { DataTypes } = require('sequelize');
 
-const { sequelize } = require('../database/config.db');
+const { db } = require('../database/config.db');
 
-const User = sequelize.define('User',{
+//El nombre del modelo y tamaño de letra deben de coincidir con el nombre de la tabla de la BD
+//Si la tabla se llama "usuarios", el modelo debe llamarse usuario
+const User = db.define('user',{ 
 
     user_id: {
         type: DataTypes.INTEGER,

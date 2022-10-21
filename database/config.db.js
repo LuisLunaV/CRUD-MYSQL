@@ -1,19 +1,24 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize( process.env.NAME_DB, process.env.DB_USER , process.env.DB_PASS, {
+const db = new Sequelize( process.env.NAME_DB, process.env.DB_USER , process.env.DB_PASS, {
     host: process.env.DB_HOST,
-    dialect: 'mysql' 
+    dialect: 'mysql',
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: true,        
+        }
+    }
 });
 
 const dbConnection = async()=>{
     try {
 
-        await sequelize.authenticate();
+        await db.authenticate();
         console.log('Database en linea')
     } catch (error) {
         throw new Error( error );
     }
 }
 module.exports = { 
-    sequelize,
+    db,
     dbConnection };
