@@ -28,9 +28,17 @@ const User = db.define('user',{
     user_estado: {
         type: DataTypes.BOOLEAN,
     }
+    
+ 
 
-}); 
+}, {
+    defaultScope: {
+      attributes: { exclude: ['createdAt', 'updatedAt'] }
+    }
+  }); 
 
+//   defaultScope: {
+//     attributes: { exclude: ['user_password', 'createdAt', 'updatedAt'] }
 
 module.exports = {
     User

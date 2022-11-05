@@ -1,4 +1,5 @@
 const { request, response } = require('express');
+const bcryptjs = require('bcryptjs');
 
 const { User } = require('../models/user');
 
@@ -16,20 +17,24 @@ const usuarios = {
        
         const { id } = req.params;
        
-        const { user_id, user_name, user_email, user_estado } = await User.findByPk( id );
+        const user = await User.findByPk( id );
 
         return res.status(200).json({
-            user_id,
-            user_name, 
-            user_email, 
-            user_estado
+            user
          })
      },
 
     userPost: async( req, res )=>{
-        const { body } = req;
+        
+        const { user_name, user_email, user_password } = req.body;
+        
+        const user = new User( { user_name, user_email, user_password } );
+        
+        user.user_name = user_name.toUpperCase();
+        
+        const salt = bcryptjs.genSaltSync();
+        user.user_password = bcryptjs.hashSync( user_password, salt );
 
-        const user = new User( body );
         await user.save();
 
         return res.json({
