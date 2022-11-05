@@ -32,7 +32,7 @@ const login = async( req, res=response ) => {
             user
         })
     } catch (error) {
-        
+        throw error;
     }
 }
 
