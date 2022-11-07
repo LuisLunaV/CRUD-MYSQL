@@ -15,7 +15,7 @@ const login = async( req, res=response ) => {
         // Validamos si el email existe, o si esta activo en la BD.
         if( !user || !user.user_estado){
             return res.status(400).json({
-                msg:`El usuario ${ user_email } no existe en esta BD`
+                error_usuario:`El usuario ${ user_email } no existe en esta BD`
             })
         };
 
@@ -24,7 +24,7 @@ const login = async( req, res=response ) => {
 
         if( !contraseñaValida ){
           return res.status(400).json({
-                msg:`La contraseña ${ user_password } no es valida`
+                error_password:`La contraseña ${ user_password } no es valida`
             })
         };
 
