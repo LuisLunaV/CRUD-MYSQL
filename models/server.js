@@ -14,7 +14,7 @@ class Server{
             auth: '/api/auth'
         }
 
-        this.whiteList = ['http://127.0.0.1:5500']
+        this.whiteList = ['http://127.0.0.1:5500', 'http://127.0.0.1:5500/','127.0.0.1:5500']
 
         //Conectar a la bd
         this.conectarDB();
