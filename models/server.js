@@ -14,11 +14,6 @@ class Server{
             auth: '/api/auth'
         }
 
-        this.corsOption = {
-            origin: 'http://127.0.0.1:5500',
-            optionsSuccessStatus: 200 
-        }
-
         //Conectar a la bd
         this.conectarDB();
         //middlewares
@@ -34,7 +29,7 @@ class Server{
 
     middlewares(){
         //Cors
-        this.app.use( cors( this.corsOption ) );
+        this.app.use( cors() );
         //Lectura y parseo del body
         this.app.use( express.json() );
     }
