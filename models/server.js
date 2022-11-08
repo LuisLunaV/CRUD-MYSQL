@@ -14,7 +14,7 @@ class Server{
             auth: '/api/auth'
         }
 
-        this.whiteList = ['http://127.0.0.1:5500/CRUD-MYSQL/index.html']
+        this.whiteList = ['http://127.0.0.1:5500']
 
         //Conectar a la bd
         this.conectarDB();
