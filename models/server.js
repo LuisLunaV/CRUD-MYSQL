@@ -14,7 +14,7 @@ class Server{
             auth: '/api/auth'
         }
 
-        this.whiteList = ['https://luislunav.github.io','https://luislunav.github.io/Sitema-de-usuarios','https://luislunav.github.io/Sitema-de-usuarios/index.html']
+        this.whiteList = ['luislunav.github.io','https://luislunav.github.io/','https://luislunav.github.io','https://luislunav.github.io/Sitema-de-usuarios','https://luislunav.github.io/Sitema-de-usuarios/index.html']
 
         //Conectar a la bd
         this.conectarDB();
