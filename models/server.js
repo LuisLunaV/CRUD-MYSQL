@@ -14,6 +14,8 @@ class Server{
             auth: '/api/auth'
         }
 
+        this.whiteList = ['https://luislunav.github.io','https://luislunav.github.io/Sitema-de-usuarios','https://luislunav.github.io/Sitema-de-usuarios/index.html']
+
         //Conectar a la bd
         this.conectarDB();
         //middlewares
@@ -29,7 +31,7 @@ class Server{
 
     middlewares(){
         //Cors
-        this.app.use( cors() );
+        this.app.use( cors({ origin: this.whiteList }) );
         //Lectura y parseo del body
         this.app.use( express.json() );
     }
