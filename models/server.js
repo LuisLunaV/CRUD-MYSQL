@@ -14,7 +14,6 @@ class Server{
             auth: '/api/auth'
         }
 
-        // this.whiteList = ['https://luislunav.github.io/','https://luislunav.github.io','http://127.0.0.1:5500/CRUD-MYSQL/','http://127.0.0.1:5500'];
 
         //Conectar a la bd
         this.conectarDB();
@@ -31,8 +30,7 @@ class Server{
 
     middlewares(){
         //Cors
-        // this.app.use( cors({ origin: this.whiteList }) );
-        this.app.use( cors( ) );
+        this.app.use( cors() );
         //Lectura y parseo del body
         this.app.use( express.json() );
     }
