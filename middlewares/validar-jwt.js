@@ -1,6 +1,5 @@
 const { request, response } = require('express');
 const jwt = require('jsonwebtoken');
-const { where } = require('../../09-socket-chat/models/usuario');
 
 const { User } = require('../models/user');
 
