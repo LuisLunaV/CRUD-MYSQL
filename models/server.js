@@ -8,7 +8,6 @@ class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
-        this.whiteList = ['http://127.0.0.1:5500','http://127.0.0.1:5500/'];
 
         this.paths = {
             usuarios: '/api/usuarios',
@@ -31,7 +30,7 @@ class Server{
 
     middlewares(){
         //Cors
-        this.app.use( cors({ origin: this.whiteList }) );
+        this.app.use( cors() );
         //Lectura y parseo del body
         this.app.use( express.json() );
     }
