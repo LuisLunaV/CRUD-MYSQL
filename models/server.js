@@ -11,7 +11,7 @@ class Server{
         this.whiteList = ['http://127.0.0.1:5500','http://127.0.0.1:5500/'];
         this.corsOptions = {
             origin: function (origin, callback) {
-              if (whiteList.indexOf(origin) !== -1) {
+              if (this.whiteList.indexOf(origin) !== -1) {
                 callback(null, true)
               } else {
                 callback(new Error('Not allowed by CORS'))
