@@ -8,16 +8,6 @@ class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
-        this.whiteList = ['http://127.0.0.1:5500','http://127.0.0.1:5500/'];
-        this.corsOptions = {
-            origin: function (origin, callback) {
-              if (this.whiteList.indexOf(origin) !== -1) {
-                callback(null, true)
-              } else {
-                callback(new Error('Not allowed by CORS'))
-              }
-            }
-          }
 
         this.paths = {
             usuarios: '/api/usuarios',
@@ -40,7 +30,7 @@ class Server{
 
     middlewares(){
         //Cors
-        this.app.use( cors( this.corsOptions));
+        // this.app.use( cors() );
         //Lectura y parseo del body
         this.app.use( express.json() );
     }
