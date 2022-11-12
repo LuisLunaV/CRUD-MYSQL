@@ -5,7 +5,7 @@ const { User } = require('../models/user');
 
 const validarJWT = async( req = request, res = response, next )=>{
 
-    const token = req.header('Access-Control-Allow-Origin:*');
+    const token = req.header('x-token');
 
      if( !token ){
 
