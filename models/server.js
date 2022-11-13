@@ -20,12 +20,7 @@ class Server{
         //         "preflightContinue": false,
         //         "optionsSuccessStatus": 204
         // }
-        this.config={
-            origin:"http://127.0.0.1:5500",
-            methods: ["GET","POST"],
-            preflightContinue: false,
-            optionsSuccessStatus: 204
-        }
+        
 
         //Conectar a la bd
         this.conectarDB();
@@ -42,7 +37,9 @@ class Server{
 
     middlewares(){
         //Cors
-        this.app.use( cors( this.config ) );
+        this.app.use( cors( {
+            origin:"*"
+        } ) );
         //Lectura y parseo del body
         this.app.use( express.json() );
     }
