@@ -33,6 +33,7 @@ const login = async( req, res=response ) => {
         const token = await generarJwt( user.user_id );
 
         return res.json({
+            token,
             user
         });
 
