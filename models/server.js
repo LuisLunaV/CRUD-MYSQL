@@ -14,12 +14,16 @@ class Server{
             auth: '/api/auth'
         }
 
-        // this.config = {
-        //         "origin": "Access-Control-Allow-Origin:*",
-        //         "methods": "POST",
-        //         "preflightContinue": false,
-        //         "optionsSuccessStatus": 204
-        // }
+        this.allowlist = ['http://127.0.0.1:5500/CRUD-MYSQL/index.html', 'http://127.0.0.1:5500']
+        this.corsOptionsDelegate = function (req, callback) {
+          this.corsOptions;
+          if (this.allowlist.indexOf(req.header('Origin')) !== -1) {
+            corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
+          } else {
+            corsOptions = { origin: false } // disable CORS for this request
+          }
+          callback(null, corsOptions) // callback expects two parameters: error and options
+        }
         
 
         //Conectar a la bd
@@ -37,15 +41,7 @@ class Server{
 
     middlewares(){
         //Cors
-        this.app.use( cors( {
-            origin:'*',
-            methods:['GET', 'PUT', 'POST'],
-            allowedHeaders:['Content-Type', 'Authorization'],
-            exposedHeaders:['Content-Range', 'X-Content-Range'],
-            credentials:true,
-            optionsSuccessStatus:200
-            // optionsSuccessStatus: 200
-        } ) );
+        this.app.use( cors( this.corsOptionsDelegate ) );
         //Lectura y parseo del body
         this.app.use( express.json() );
     }
