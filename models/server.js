@@ -14,12 +14,12 @@ class Server{
             auth: '/api/auth'
         }
 
-        this.config = {
-                "origin": "Access-Control-Allow-Origin:*",
-                "methods": "POST",
-                "preflightContinue": false,
-                "optionsSuccessStatus": 204
-        }
+        // this.config = {
+        //         "origin": "Access-Control-Allow-Origin:*",
+        //         "methods": "POST",
+        //         "preflightContinue": false,
+        //         "optionsSuccessStatus": 204
+        // }
         this.config={
             origin:"*",
             methods: ["POST"],
