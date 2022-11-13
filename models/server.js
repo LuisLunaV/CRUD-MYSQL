@@ -23,8 +23,8 @@ class Server{
         this.config={
             origin:"*",
             methods: ["POST"],
-            credentials: true,
-            maxAge: 3600
+            preflightContinue: false,
+            optionsSuccessStatus: 204
         }
 
         //Conectar a la bd
