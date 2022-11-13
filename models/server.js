@@ -41,7 +41,9 @@ class Server{
 
     middlewares(){
         //Cors
-        this.app.use( cors( this.corsOptionsDelegate ) );
+        this.app.use( cors( this.corsOptionsDelegate ),function (req, res, next) {
+            res.json({msg: 'This is CORS-enabled for an allowed domain.'})
+          } );
         //Lectura y parseo del body
         this.app.use( express.json() );
     }
