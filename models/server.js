@@ -14,6 +14,13 @@ class Server{
             auth: '/api/auth'
         }
 
+        this.config = {
+                "origin": "*",
+                "methods": "POST",
+                "preflightContinue": false,
+                "optionsSuccessStatus": 204
+        }
+
 
         //Conectar a la bd
         this.conectarDB();
@@ -30,7 +37,7 @@ class Server{
 
     middlewares(){
         //Cors
-        this.app.use( cors() );
+        this.app.use( cors( this.config ) );
         //Lectura y parseo del body
         this.app.use( express.json() );
     }
