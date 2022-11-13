@@ -21,7 +21,7 @@ class Server{
         //         "optionsSuccessStatus": 204
         // }
         this.config={
-            origin:"*",
+            origin:"http://127.0.0.1:5500",
             methods: ["POST"],
             preflightContinue: false,
             optionsSuccessStatus: 204
