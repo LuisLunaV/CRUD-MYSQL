@@ -20,7 +20,12 @@ class Server{
                 "preflightContinue": false,
                 "optionsSuccessStatus": 204
         }
-
+        this.config={
+            origin:"*",
+            methods: ["POST"],
+            credentials: true,
+            maxAge: 3600
+        }
 
         //Conectar a la bd
         this.conectarDB();
