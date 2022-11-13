@@ -38,8 +38,8 @@ class Server{
     middlewares(){
         //Cors
         this.app.use( cors( {
-            origin:"Access-Control-Allow-Origin:*",
-            optionsSuccessStatus: 200
+            origin:false,
+            // optionsSuccessStatus: 200
         } ) );
         //Lectura y parseo del body
         this.app.use( express.json() );
