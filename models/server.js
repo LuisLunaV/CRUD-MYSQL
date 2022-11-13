@@ -22,7 +22,7 @@ class Server{
         // }
         this.config={
             origin:"http://127.0.0.1:5500",
-            methods: ["POST"],
+            methods: ["GET","POST"],
             preflightContinue: false,
             optionsSuccessStatus: 204
         }
