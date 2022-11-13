@@ -38,7 +38,12 @@ class Server{
     middlewares(){
         //Cors
         this.app.use( cors( {
-            origin:false,
+            origin:'*',
+            methods:['GET', 'PUT', 'POST'],
+            allowedHeaders:['Content-Type', 'Authorization'],
+            exposedHeaders:['Content-Range', 'X-Content-Range'],
+            credentials:true,
+            optionsSuccessStatus:200
             // optionsSuccessStatus: 200
         } ) );
         //Lectura y parseo del body
