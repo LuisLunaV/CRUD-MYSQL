@@ -8,7 +8,7 @@ return new Promise((resolve, reject)=>{
 
     jwt.sign(payload, process.env.SECRETORPRIVATEKEY, {
     
-        expiresIn: '7d'
+        expiresIn: '4h'
     
     }, (err, token)=>{
     
