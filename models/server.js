@@ -39,6 +39,7 @@ class Server{
         //Cors
         this.app.use( cors( {
             origin:"*",
+            optionsSuccessStatus: 200
         } ) );
         //Lectura y parseo del body
         this.app.use( express.json() );
