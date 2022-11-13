@@ -15,7 +15,7 @@ class Server{
         }
 
         this.config = {
-                "origin": "*",
+                "origin": "Access-Control-Allow-Origin:*",
                 "methods": "POST",
                 "preflightContinue": false,
                 "optionsSuccessStatus": 204
