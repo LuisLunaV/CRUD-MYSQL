@@ -22,7 +22,7 @@ class Server{
           } else {
             this.corsOptions = { origin: false } // disable CORS for this request
           }
-          callback(null, corsOptions) // callback expects two parameters: error and options
+          callback(null, this.corsOptions) // callback expects two parameters: error and options
         }
         
 
