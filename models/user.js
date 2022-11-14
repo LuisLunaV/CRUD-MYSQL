@@ -25,6 +25,12 @@ const User = db.define('user',{
         required: [true, 'El password es obligatorio']
     },
 
+    user_rol: {
+        type: String,
+        required: true,
+        emun: ['ADMIN_ROL','USER_ROL']
+    },
+
     user_estado: {
         type: DataTypes.BOOLEAN,
     }
