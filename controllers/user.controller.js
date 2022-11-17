@@ -6,7 +6,11 @@ const { User } = require('../models/user');
 const usuarios = {
     userGet: async( req, res )=>{
       
-        const users = await User.findAll()
+        const query = { user_estado: true };
+        const users = await User.findAndCountAll({
+            where: query,
+            offset: 0,
+            limit: 10 });
     
         return res.status(200).json({
             users
