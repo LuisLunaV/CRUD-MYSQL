@@ -7,11 +7,13 @@ const usuarios = {
     userGet: async( req, res )=>{
       
         const query = { user_estado: true };
-        const users = await User.findAndCountAll({
-            where: query,
-            offset: 0,
-            limit: 10 });
+        // const users = await User.findAndCountAll({
+        //     where: query,
+        //     offset: 0,
+        //     limit: 10 });
     
+        const users = await User.findAll({ where: query });
+        
         return res.status(200).json({
             users
         })
