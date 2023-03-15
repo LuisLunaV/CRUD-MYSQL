@@ -54,8 +54,6 @@ const usuarios = {
 
         const user = await User.findByPk( id ) ;
         
-        user.user_name = user_name.toUpperCase();
-        
         await user.update( body , {new : true} );
 
         return res.status(200).json({
